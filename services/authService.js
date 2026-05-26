@@ -11,14 +11,13 @@ export const login = async (username, password) => {
   // Guarda el token para usarlo en las demás peticiones
   if (data.token) setToken(data.token);
   if (data.username) setUsername(data.username);
-  console.log(data);
   return data;
 };
 
 // Registro de usuario nuevo
-export const registerUser = async ({Username,PasswordHash}) => {
+export const registerUser = async ({username,password}) => {
   return await apiFetch('/api/RegisterUser/User', {
     method: 'POST',
-    body: JSON.stringify({Username,PasswordHash }),
+    body: JSON.stringify({username,password }),
   });
 };

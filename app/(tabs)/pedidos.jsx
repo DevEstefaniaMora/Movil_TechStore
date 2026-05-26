@@ -46,7 +46,6 @@ export default function Pedidos() {
     setLoading(true);
     try {
       const data = await getOrders();
-      console.log("📦 Pedidos:", JSON.stringify(data));
       setPedidos(data);
     } catch (error) {
       Alert.alert(

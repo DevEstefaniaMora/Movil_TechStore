@@ -8,7 +8,7 @@ export const setToken = (token) => { authToken = token; };
 export const getToken = () => authToken;
 export const setUsername = (username) => { authUsername = username; }; // ← nuevo
 export const getUsername = ()         => authUsername;  
- console.log(setUsername);
+
 export const apiFetch = async (endpoint, options = {}) => {
   const url = `${BASE_URL}${endpoint}`;
   const headers = {
@@ -32,14 +32,12 @@ export const apiFetch = async (endpoint, options = {}) => {
 
   if (!response.ok) {
     const errorText = await response.text();
-    console.log('❌ Error:', errorText);
     throw new Error(errorText || `Error ${response.status}`);
   }
 
   const contentType = response.headers.get('content-type');
   if (contentType && contentType.includes('application/json')) {
     const data = await response.json();
-    console.log('📥 Datos:', JSON.stringify(data));
     return data;
   }
   return response.text();

@@ -16,8 +16,8 @@ export default function Register() {
   const [showPass, setShowPass]         = useState(false);
   const [showPassConf, setShowPassConf] = useState(false);
   const [form, setForm] = useState({
-    Username:        '',
-    Password:    '',
+    username:        '',
+    password:    '',
     confirmPassword: '',
   });
 
@@ -25,15 +25,15 @@ export default function Register() {
     setForm((prev) => ({ ...prev, [key]: value }));
 
   const handleRegistro = async () => {
-    if (!form.Username.trim()) {
+    if (!form.username.trim()) {
       Alert.alert('Requerido', 'Ingresa un nombre de usuario');
       return;
     }
-    if (!form.Password.trim() || form.Password.length < 6) {
+    if (!form.password.trim() || form.password.length < 6) {
       Alert.alert('Contraseña inválida', 'La contraseña debe tener al menos 6 caracteres');
       return;
     }
-    if (form.Password !== form.confirmPassword) {
+    if (form.password !== form.confirmPassword) {
       Alert.alert('Error', 'Las contraseñas no coinciden');
       return;
     }
@@ -41,8 +41,8 @@ export default function Register() {
     setGuardando(true);
     try {
       await registerUser({
-        Username:     form.Username,
-        Password: form.Password,
+        username:     form.username,
+        password: form.password,
       });
       Alert.alert(
         '¡Cuenta creada! ✅',
@@ -89,8 +89,8 @@ export default function Register() {
             style={styles.input}
             placeholder="Nombre de usuario"
             placeholderTextColor="#444460"
-            value={form.Username}
-            onChangeText={(v) => updateForm('Username', v)}
+            value={form.username}
+            onChangeText={(v) => updateForm('username', v)}
             autoCapitalize="none"
           />
         </View>
@@ -103,8 +103,8 @@ export default function Register() {
             style={styles.input}
             placeholder="Mínimo 6 caracteres"
             placeholderTextColor="#444460"
-            value={form.Password}
-            onChangeText={(v) => updateForm('Password', v)}
+            value={form.password}
+            onChangeText={(v) => updateForm('password', v)}
             secureTextEntry={!showPass}
           />
           <TouchableOpacity onPress={() => setShowPass(!showPass)}>
@@ -121,7 +121,7 @@ export default function Register() {
         <View style={[
           styles.inputRow,
           form.confirmPassword.length > 0 &&
-          form.Password !== form.confirmPassword &&
+          form.password !== form.confirmPassword &&
           styles.inputRowError
         ]}>
           <Ionicons name="lock-closed-outline" size={18} color="#555570" style={styles.inputIcon} />
@@ -144,7 +144,7 @@ export default function Register() {
 
         {/* Mensaje contraseñas no coinciden */}
         {form.confirmPassword.length > 0 &&
-         form.Password !== form.confirmPassword ? (
+         form.password !== form.confirmPassword ? (
           <View style={styles.msgRow}>
             <Ionicons name="warning-outline" size={12} color="#F87171" />
             <Text style={styles.msgError}>Las contraseñas no coinciden</Text>
@@ -153,7 +153,7 @@ export default function Register() {
 
         {/* Mensaje contraseñas coinciden */}
         {form.confirmPassword.length > 0 &&
-         form.Password === form.confirmPassword ? (
+         form.password === form.confirmPassword ? (
           <View style={styles.msgRow}>
             <Ionicons name="checkmark-circle-outline" size={12} color="#34D399" />
             <Text style={styles.msgSuccess}>Las contraseñas coinciden</Text>

@@ -5,10 +5,10 @@ import { useRouter } from 'expo-router';
 import { getUsername } from '../../services/api';
 // Datos de las tarjetas de estadísticas
 const STATS = [
-  { label: 'Productos',   value: '124', icon: 'cube',       color: '#A78BFA', route: '/productos'  },
-  { label: 'Categorías',  value: '8',   icon: 'pricetag',   color: '#F59E0B', route: '/categorias' },
-  { label: 'Pedidos',     value: '37',  icon: 'receipt',    color: '#34D399', route: '/pedidos'    },
-  { label: 'Usuarios',    value: '15',  icon: 'people',     color: '#00D4FF', route: '/usuarios'  },
+  { label: 'Productos',   value: '5', icon: 'cube',       color: '#A78BFA', route: '/productos'  },
+  { label: 'Categorías',  value: '3',   icon: 'pricetag',   color: '#F59E0B', route: '/categorias' },
+  { label: 'Pedidos',     value: '5',  icon: 'receipt',    color: '#34D399', route: '/pedidos'    },
+  { label: 'Usuarios',    value: '2',  icon: 'people',     color: '#00D4FF', route: '/usuarios'  },
 ];
 
 export default function Dashboard() {
